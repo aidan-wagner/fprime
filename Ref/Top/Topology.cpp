@@ -102,6 +102,9 @@ Svc::FramerComponentImpl downlink(FW_OPTIONAL_NAME("downlink"));
 
 Svc::DeframerComponentImpl uplink(FW_OPTIONAL_NAME("uplink"));
 
+Ref::MathSenderComponentImpl mathSender(FW_OPTIONAL_NAME("mathSender"));
+Ref::MathReceiverComponentImpl mathReceiver(FW_OPTIONAL_NAME("mathReceiver"));
+
 const char* getHealthName(Fw::ObjBase& comp) {
    #if FW_OBJECT_NAMES == 1
        return comp.getObjName();
@@ -168,6 +171,9 @@ bool constructApp(bool dump, U32 port_number, char* hostname) {
     health.init(25,0);
     pingRcvr.init(10);
 
+    mathSender.init(10,0);
+    mathReceiver.init(10,0);
+
     downlink.setup(framing);
     uplink.setup(deframing);
 
@@ -198,11 +204,14 @@ bool constructApp(bool dump, U32 port_number, char* hostname) {
     SG5.regCommands();
     health.regCommands();
     pingRcvr.regCommands();
+    mathSender.regCommands();
+    mathReceiver.regCommands();
 
     // read parameters
     prmDb.readParamFile();
     recvBuffComp.loadParameters();
     sendBuffComp.loadParameters();
+    mathReceiver.loadParameters();
 
     // set up BufferManager instances
     Svc::BufferManagerComponentImpl::BufferBins upBuffMgrBins;
@@ -254,6 +263,8 @@ bool constructApp(bool dump, U32 port_number, char* hostname) {
 
     pingRcvr.start(0, 100, 10*1024);
 
+    mathSender.start(0,100,10*1024);
+
    
 
     // Initialize socket server if and only if there is a valid specification
@@ -280,6 +291,7 @@ void exitTasks(void) {
     fileManager.exit();
     cmdSeq.exit();
     pingRcvr.exit();
+    mathSender.exit();
     // join the component threads with NULL pointers to free them
     (void) rateGroup1Comp.ActiveComponentBase::join(NULL);
     (void) rateGroup2Comp.ActiveComponentBase::join(NULL);
