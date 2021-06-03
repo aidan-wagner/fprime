@@ -39,7 +39,7 @@ For full installation instructions, including virtual environment creation and i
 
 ## Installing the linter through fprime-extras
 
-The fprime-extras package includes a linter assist with development of fprime applications.
+The fprime-extras package includes a linter to assist with development of fprime applications.
 
 To install fprime-extras, we must clone the repository and switch to the devel branch:
 
@@ -62,14 +62,15 @@ cd ~/.cache
 mkdir fprime-extras
 ```
 
-Now the linter can be used to check xml files for potential errors.
-In the directory of the xml file we want to lint, we can use the linter with this command:
+Now the linter can be used to check .xml files for potential errors.
+In the directory of the .xml file we want to lint, we can use the linter with this command:
 
 ```
 fprime-extras lint filename
 ```
 
 The first time you run the linter, you may get an error message stating that there is no version.json file, but once the linter is run once, this file is created and this error should no longer appear.
+
 To see more details than what is provided in the terminal, you can view the log files at ~/.cache/fprime-extras/fprime-extras.log
 
 To see all of the potential linting options, use:
