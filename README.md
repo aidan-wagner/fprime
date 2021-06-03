@@ -37,6 +37,37 @@ pip install Fw/Python Gds/
 
 For full installation instructions, including virtual environment creation and installation verification, see [INSTALL.md](./docs/INSTALL.md). 
 
+## Installing the linter through fprime-extras
+
+The fprime-extras package includes a linter assist with development of fprime applications
+
+First, we must clone the repository and switch to the devel branch:
+
+```
+git clone https://github.com/SterlingPeet/python-fprime-extras.git
+git checkout devel
+```
+
+Then, install fprime-extras using pip:
+
+```
+cd python-fprime-extras
+pip install .
+```
+
+For the linter to work, it needs a location to store the log files:
+
+```
+cd ~/.cache
+mkdir fprime-extras
+```
+
+In the directory of the file we wish to lint, we can use the linter with this command:
+
+```
+fprime-extras lint filename
+```
+
 ## Example Deployments
 
 F´ comes with two example deployments. The deployments represent working F´ applications to help you understand F´. You can use these examples for reference, or clone them to start a new project. 
