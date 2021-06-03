@@ -55,7 +55,7 @@ Then, install fprime-extras using pip:
 pip install .
 ```
 
-For the linter to work, it needs a location to store the log files:
+For the linter to work, it needs a location in the .cache directory to store the log files:
 
 ```
 cd ~/.cache
@@ -71,7 +71,7 @@ fprime-extras lint filename
 
 The first time you run the linter, you may get an error message stating that there is no version.json file, but once the linter is run once, this file is created and this error should no longer appear.
 
-To see more details than what is provided in the terminal, you can view the log files at ~/.cache/fprime-extras/fprime-extras.log
+To see more details from the lint report than what is provided in the terminal, you can view the log files at ~/.cache/fprime-extras/fprime-extras.log
 
 To see all of the potential linting options, use:
 
