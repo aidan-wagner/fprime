@@ -41,7 +41,7 @@ For full installation instructions, including virtual environment creation and i
 
 The fprime-extras package includes a linter assist with development of fprime applications.
 
-First, we must clone the repository and switch to the devel branch:
+To install fprime-extras, we must clone the repository and switch to the devel branch:
 
 ```
 git clone https://github.com/SterlingPeet/python-fprime-extras.git
