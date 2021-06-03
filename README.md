@@ -72,6 +72,18 @@ fprime-extras lint filename
 The first time you run the linter, you may get an error message stating that there is no version.json file, but once the linter is run once, this file is created and this error should no longer appear.
 To see more details than what is provided in the terminal, you can view the log files at ~/.cache/fprime-extras/fprime-extras.log
 
+To see all of the potential linting options, use:
+
+```
+fprime-extras lint -h
+```
+
+And to view the other capabilities of fprime-extras, use:
+
+```
+fprime-extras -h
+```
+
 ## Example Deployments
 
 F´ comes with two example deployments. The deployments represent working F´ applications to help you understand F´. You can use these examples for reference, or clone them to start a new project. 
