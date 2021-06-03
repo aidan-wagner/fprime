@@ -96,8 +96,13 @@ namespace Ref {
         NATIVE_UINT_TYPE context
     )
   {
-    // TODO
+      QueuedComponentBase::MsgDispatchStatus stat = QueuedComponentBase::MSG_DISPATCH_OK;
+      // empty message queue
+      while (stat != MSG_DISPATCH_EMPTY) {
+          stat = this->doDispatch();
+      }
   }
+
 
   // ----------------------------------------------------------------------
   // Command handler implementations
