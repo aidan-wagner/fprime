@@ -1,12 +1,12 @@
-#Math Component tutorial with fprime-util new
+# Math Component tutorial with fprime-util new
 
 Instead of creating the .xml files by hand, it is possible to use "fprime-util new".
 
 While in the Ref directory use the command:
 
-'''
+```
 fprime-util new
-'''
+```
 
 Follow the steps with the following for both the MathReceiver and MathSender:
 1. Your full name
@@ -29,18 +29,18 @@ This will create the directories and files for the components. Now, cd into the 
 
 Then you can use:
 
-'''
+```
 fprime-util impl
-'''
+```
 
 to generate the implementation files. 
 
 If you receive an error message at this step, try returning to the Ref directory and running:
 
-'''
+```
 fprime-util purge
 fprime-util generate
-'''
+```
 
 This will regenerate your project and may solve problems with fprime-util impl and fprime-util build.
 
@@ -48,10 +48,10 @@ Once these implementation files are generated, copy them from the "-template" fi
 
 Once you are done with the implementation files and are finished with all of the other steps in the Math Component tutorial, you can build and run your project. From the Ref directory run:
 
-'''
+```
 fprime-util build
 fprime-gds
-'''
+```
 
 Now you can use the graphic interface the same way that the tutorial describes
 
