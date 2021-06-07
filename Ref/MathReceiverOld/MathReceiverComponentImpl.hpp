@@ -1,12 +1,7 @@
 // ======================================================================
-// \title  MathSenderComponentImpl.hpp
-// \author Aidan Wagner <aidan.j.wagner@jpl.nasa.gov>
-// \brief  Sends operations to MathReceiver
-// ======================================================================
-// ======================================================================
-// \title  MathSenderComponentImpl.hpp
+// \title  MathReceiverComponentImpl.hpp
 // \author aidanwagner
-// \brief  hpp file for MathSender component implementation class
+// \brief  hpp file for MathReceiver component implementation class
 //
 // \copyright
 // Copyright 2009-2015, by the California Institute of Technology.
@@ -15,15 +10,15 @@
 //
 // ======================================================================
 
-#ifndef MathSender_HPP
-#define MathSender_HPP
+#ifndef MathReceiver_HPP
+#define MathReceiver_HPP
 
-#include "Ref/MathSender/MathSenderComponentAc.hpp"
+#include "Ref/MathReceiver/MathReceiverComponentAc.hpp"
 
 namespace Ref {
 
-  class MathSenderComponentImpl :
-    public MathSenderComponentBase
+  class MathReceiverComponentImpl :
+    public MathReceiverComponentBase
   {
 
     public:
@@ -32,22 +27,22 @@ namespace Ref {
       // Construction, initialization, and destruction
       // ----------------------------------------------------------------------
 
-      //! Construct object MathSender
+      //! Construct object MathReceiver
       //!
-      MathSenderComponentImpl(
+      MathReceiverComponentImpl(
           const char *const compName /*!< The component name*/
       );
 
-      //! Initialize object MathSender
+      //! Initialize object MathReceiver
       //!
       void init(
           const NATIVE_INT_TYPE queueDepth, /*!< The queue depth*/
           const NATIVE_INT_TYPE instance = 0 /*!< The instance number*/
       );
 
-      //! Destroy object MathSender
+      //! Destroy object MathReceiver
       //!
-      ~MathSenderComponentImpl(void);
+      ~MathReceiverComponentImpl(void);
 
     PRIVATE:
 
@@ -59,7 +54,16 @@ namespace Ref {
       //!
       void mathIn_handler(
           const NATIVE_INT_TYPE portNum, /*!< The port number*/
-          F32 result /*!< the result of the operation*/
+          F32 val1, 
+          F32 val2, 
+          MathOperation operation /*!< operation argument*/
+      );
+
+      //! Handler implementation for SchedIn
+      //!
+      void SchedIn_handler(
+          const NATIVE_INT_TYPE portNum, /*!< The port number*/
+          NATIVE_UINT_TYPE context /*!< The call order*/
       );
 
     PRIVATE:
@@ -68,14 +72,28 @@ namespace Ref {
       // Command handler implementations
       // ----------------------------------------------------------------------
 
-      //! Implementation for MS_DO_MATH command handler
-      //! Do a math operation
-      void MS_DO_MATH_cmdHandler(
+      //! Implementation for MR_SET_FACTOR1 command handler
+      //! Set operation multiplication factor1
+      void MR_SET_FACTOR1_cmdHandler(
           const FwOpcodeType opCode, /*!< The opcode*/
           const U32 cmdSeq, /*!< The command sequence number*/
-          F32 val1, /*!< The first value*/
-          F32 val2, /*!< The second value*/
-          MathOp operation /*!< The operation to perform*/
+          F32 val /*!< The first factor*/
+      );
+
+      //! Implementation for MR_CLEAR_EVENT_THROTTLE command handler
+      //! Clear the event throttle
+      void MR_CLEAR_EVENT_THROTTLE_cmdHandler(
+          const FwOpcodeType opCode, /*!< The opcode*/
+          const U32 cmdSeq /*!< The command sequence number*/
+      );
+
+      // stored factor1
+      F32 m_factor1;
+      // number of times factor1 has been written
+      U32 m_factor1s;
+
+      void parameterUpdated(
+        FwPrmIdType id /*!< The parameter ID*/
       );
 
 

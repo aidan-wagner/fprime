@@ -1,55 +1,52 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<?xml-model href="../../../Autocoders/Python/schema/default/component_schema.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <component name="MathSender" kind="active" namespace="Ref">
     <import_port_type>Ref/MathPorts/MathOpPortAi.xml</import_port_type>
     <import_port_type>Ref/MathPorts/MathResultPortAi.xml</import_port_type>
-    <comment>Sends operations to MathReceiver</comment>
+    <comment>Component sending a math operation</comment>
     <ports>
-        <!-- Input ports must be of kind "sync_input" or "async_input" or "guarded_input" -->
-        <port name="mathOut" data_type="Ref::MathOp" kind="output" max_number="1">
+        <port name="mathOut" data_type="Ref::MathOp" kind="output">
             <comment>
-            Port used to send math operation
+            Port for sending the math operation
             </comment>
         </port>
         <port name="mathIn" data_type="Ref::MathResult" kind="async_input">
             <comment>
-            Port for recieving the math MathResult
+            Port for returning the math result
             </comment>
         </port>
     </ports>
     <commands>
         <command kind="async" opcode="0" mnemonic="MS_DO_MATH">
             <comment>
-            Perform math operation
+            Do a math operation
             </comment>
             <args>
                 <arg name="val1" type="F32">
-                    <comment>The first value for the operation</comment>
-                </arg>
+                    <comment>The first value</comment>
+                </arg>          
                 <arg name="val2" type="F32">
-                    <comment>The second value for the operation</comment>
-                </arg>
+                    <comment>The second value</comment>
+                </arg>          
                 <arg name="operation" type="ENUM">
                     <enum name="MathOp">
                         <item name="ADD"/>
                         <item name="SUBTRACT"/>
-                        <item name="MULTIPLY"/>
-                        <item name="DIVIDE"/>
+                        <item name="MULTIPLY"/>           
+                        <item name="DIVIDE"/>           
                     </enum>
-                    <comment> The operation to be performed</comment>
+                    <comment>The operation to perform</comment>
                 </arg>
-            </args>
+             </args>
         </command>
     </commands>
     <telemetry>
         <channel id="0" name="MS_VAL1" data_type="F32">
             <comment>
-            First value
+            The first value
             </comment>
         </channel>
         <channel id="1" name="MS_VAL2" data_type="F32">
             <comment>
-            Second value
+            The second value
             </comment>
         </channel>
         <channel id="2" name="MS_OP" data_type="ENUM">
@@ -60,17 +57,17 @@
                 <item name="DIV_TLM"/>           
             </enum>
             <comment>
-            Operation
+            The operation
             </comment>
         </channel>
         <channel id="3" name="MS_RES" data_type="F32">
             <comment>
-            Result
+            The result
             </comment>
         </channel>
     </telemetry>
     <events>
-        <event id="0" name="MS_COMMAND_RECV" severity="ACTIVITY_LO" format_string = "Math Cmd Recvd: %f %f %d" >
+        <event id="0" name="MS_COMMAND_RECV" severity="ACTIVITY_LO" format_string="Math Cmd Recvd: %f %f %d"  >
             <comment>
             Math command received
             </comment>
@@ -92,7 +89,6 @@
                 </arg>          
             </args>
         </event>
-
         <event id="1" name="MS_RESULT" severity="ACTIVITY_HI" format_string = "Math result is %f" >
             <comment>
             Received math result

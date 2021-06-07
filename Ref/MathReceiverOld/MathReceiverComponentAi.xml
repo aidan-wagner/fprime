@@ -1,11 +1,9 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<?xml-model href="../../../Autocoders/Python/schema/default/component_schema.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <component name="MathReceiver" kind="queued" namespace="Ref">
     <import_port_type>Ref/MathPorts/MathOpPortAi.xml</import_port_type>
     <import_port_type>Ref/MathPorts/MathResultPortAi.xml</import_port_type>
     <import_port_type>Svc/Sched/SchedPortAi.xml</import_port_type>
     <import_serializable_type>Ref/MathTypes/MathOpSerializableAi.xml</import_serializable_type>
-    <comment>Performs math operations</comment>
+    <comment>Component sending a math operation</comment>
     <ports>
         <port name="mathIn" data_type="Ref::MathOp" kind="async_input">
             <comment>
@@ -39,13 +37,6 @@
             </comment>
         </command>
     </commands>
-    <parameters>
-        <parameter id="0" name="factor2" data_type="F32" default="1.0" set_opcode="10" save_opcode="11">
-            <comment>
-            A test parameter
-            </comment>
-        </parameter>
-    </parameters>
     <telemetry>
         <channel id="0" name="MR_OPERATION" data_type="Ref::MathOp">
             <comment>
@@ -105,4 +96,12 @@
             </comment>
         </event>
     </events>
+    <parameters>
+        <parameter id="0" name="factor2" data_type="F32" default="1.0" set_opcode="10" save_opcode="11">
+            <comment>
+            A test parameter
+            </comment>
+        </parameter>
+    </parameters>
+    
 </component>

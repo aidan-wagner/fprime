@@ -1,10 +1,5 @@
 // ======================================================================
 // \title  MathSenderComponentImpl.hpp
-// \author Aidan Wagner <aidan.j.wagner@jpl.nasa.gov>
-// \brief  Sends operations to MathReceiver
-// ======================================================================
-// ======================================================================
-// \title  MathSenderComponentImpl.hpp
 // \author aidanwagner
 // \brief  hpp file for MathSender component implementation class
 //

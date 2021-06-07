@@ -6,8 +6,8 @@
 #
 ####
 set(SOURCE_FILES
-    "${CMAKE_CURRENT_LIST_DIR}/MathSenderComponentAi.xml"
-    "${CMAKE_CURRENT_LIST_DIR}/MathSenderComponentImpl.cpp"
+    "${CMAKE_CURRENT_LIST_DIR}/compComponentAi.xml"
+    "${CMAKE_CURRENT_LIST_DIR}/compComponentImpl.cpp"
 )
 
 # # Determine the platform specific source files to append:
@@ -15,16 +15,16 @@ set(SOURCE_FILES
 
 # # CygWin platform additions
 # if(${CMAKE_SYSTEM_NAME_LOWER} STREQUAL "cygwin")
-#     list(APPEND SOURCE_FILES "${CMAKE_CURRENT_LIST_DIR}/MathSenderComponentCygWinImpl.cpp")
+#     list(APPEND SOURCE_FILES "${CMAKE_CURRENT_LIST_DIR}/compComponentCygWinImpl.cpp")
 # # Darwin platform additions
 # elseif(${CMAKE_SYSTEM_NAME_LOWER} STREQUAL "darwin")
-#     list(APPEND SOURCE_FILES "${CMAKE_CURRENT_LIST_DIR}/MathSenderComponentDarwinImpl.cpp")
+#     list(APPEND SOURCE_FILES "${CMAKE_CURRENT_LIST_DIR}/compComponentDarwinImpl.cpp")
 # # VxWorks platform additions
 # elseif(${CMAKE_SYSTEM_NAME_LOWER} STREQUAL "vxworks")
-#     list(APPEND SOURCE_FILES "${CMAKE_CURRENT_LIST_DIR}/MathSenderComponentVxWorksImpl.cpp")
+#     list(APPEND SOURCE_FILES "${CMAKE_CURRENT_LIST_DIR}/compComponentVxWorksImpl.cpp")
 # # Otherwise, assume Linux-compatible build
 # else()
-#     list(APPEND SOURCE_FILES "${CMAKE_CURRENT_LIST_DIR}/MathSenderComponentLinuxImpl.cpp")
+#     list(APPEND SOURCE_FILES "${CMAKE_CURRENT_LIST_DIR}/compComponentLinuxImpl.cpp")
 # endif()
 
 

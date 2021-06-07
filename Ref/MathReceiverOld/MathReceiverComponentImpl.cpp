@@ -1,10 +1,5 @@
 // ======================================================================
 // \title  MathReceiverComponentImpl.cpp
-// \author Aidan Wagner <aidan.j.wagner@jpl.nasa.gov>
-// \brief  Performs math operations
-// ======================================================================
-// ======================================================================
-// \title  MathReceiverComponentImpl.cpp
 // \author aidanwagner
 // \brief  cpp file for MathReceiver component implementation class
 //

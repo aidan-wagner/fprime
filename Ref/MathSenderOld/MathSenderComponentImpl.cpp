@@ -1,10 +1,5 @@
 // ======================================================================
 // \title  MathSenderComponentImpl.cpp
-// \author Aidan Wagner <aidan.j.wagner@jpl.nasa.gov>
-// \brief  Sends operations to MathReceiver
-// ======================================================================
-// ======================================================================
-// \title  MathSenderComponentImpl.cpp
 // \author aidanwagner
 // \brief  cpp file for MathSender component implementation class
 //
@@ -54,7 +49,7 @@ namespace Ref {
 
   void MathSenderComponentImpl ::
     mathIn_handler(
-        NATIVE_INT_TYPE portNum,
+        const NATIVE_INT_TYPE portNum,
         F32 result
     )
   {
