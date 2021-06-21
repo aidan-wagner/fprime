@@ -1,0 +1,30 @@
+# This file exists so you can easily regenerate your project.
+#
+# `cookiepatcher` is a convenient shim around `cookiecutter`
+# for regenerating projects (it will generate a .cookiecutterrc
+# automatically for any template). To use it:
+#
+#    pip install cookiepatcher
+#    cookiepatcher gh:sterlingpeet/cookiecutter-fprime-component prot
+#
+# See:
+#    https://pypi.org/project/cookiepatcher
+#
+# Alternatively, you can run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=prot/.cookiecutterrc gh:sterlingpeet/cookiecutter-fprime-component
+
+default_context:
+
+    _template:                 '/home/aidanwagner/Documents/fprime-tools/src/fprime/fbuild/../cookiecutter_templates/cookiecutter-fprime-port'
+    email:                     'email'
+    full_name:                 'aidan'
+    license:                   'None'
+    port_dir_name:             'prot'
+    port_explicit_component_suffix: 'Port'
+    port_name:                 'prot'
+    port_namespace:            'Ref'
+    port_path:                 'Ref'
+    port_path_to_fprime_root:  '../..'
+    port_short_description:    'is a prot'
+    port_slug:                 'prot'
